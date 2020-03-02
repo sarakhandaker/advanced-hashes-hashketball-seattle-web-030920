@@ -166,13 +166,11 @@ end
 def big_shoe_rebounds()
   shoe_array=[]
   game_hash.each do |location, team|
-      team[:players].each do |playerhash|
+    team[:players].each do |playerhash|
       shoe_array<< playerhash[:shoe]
-      end
     end
   end
   large_shoe=shoe_array.max
-  
   game_hash.each do |location, team|
     team[:players].each do |playerhash|
       if large_shoe== playerhash[:shoe]
@@ -180,6 +178,4 @@ def big_shoe_rebounds()
       end
     end
   end
-  
-  
 end
