@@ -164,13 +164,22 @@ def player_stats(player)
 end
 
 def big_shoe_rebounds()
-  jersey_array=[]
+  shoe_array=[]
   game_hash.each do |location, team|
-    if team_name== team[:team_name]
       team[:players].each do |playerhash|
-      jersey_array<< playerhash[:number]
+      shoe_array<< playerhash[:shoe]
       end
     end
   end
-  jersey_array
+  large_shoe=shoe_array.max
+  
+  game_hash.each do |location, team|
+    team[:players].each do |playerhash|
+      if large_shoe== playerhash[:shoe]
+        return playerhash[:rebounds] 
+      end
+    end
+  end
+  
+  
 end
